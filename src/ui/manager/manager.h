@@ -11,7 +11,7 @@ typedef enum
     mainMenu,
     debugMenu,
     settingsMenu,
-    bleSettings,
+    gadgetbridgeSettings,
     generalDebug,
     clockDebug,
     batteryDebug,
@@ -103,7 +103,7 @@ void switchGeneralDebug();
 void switchClockDebug();
 void switchBatteryDebug();
 void switchWifiDebug();
-void switchBle();
+void switchGadgetbridge();
 void switchGitDebug();
 void switchAccDebug();
 void switchMotorDebug();

@@ -163,7 +163,7 @@ void initSettingsMenu()
     {
         debugLog("Adding bluetooth to menu");
         count = count + 1;
-        buttons[count] = {"Bluetooth", getImg("bluetooth"), switchBle};
+        buttons[count] = {"Gadgetbridge", getImg("bluetooth"), switchGadgetbridge};
     }
 #if DEBUG_MENUS
     {

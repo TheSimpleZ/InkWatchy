@@ -196,7 +196,7 @@ RTC_DATA_ATTR rtcMem rM = {
 #endif
 #endif
     .ble_connection_attempts = 0,
-    .ble_is_on = GADGETBRIDGE_ENABLED,
+    .gadgetbridge_is_on = GADGETBRIDGE_ENABLED,
 };
 
 #if RTC_MEMORY_BACKUP

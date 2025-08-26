@@ -206,8 +206,8 @@ void checkIfButtonIsRunning()
 
 void manageSleep()
 {
-    // debugLog("millis is:" + String(millisBetter()));
-    // debugLog("sleepDelayMs is:" + String(sleepDelayMs));
+    debugLog("millis is:" + String(millisBetter()));
+    debugLog("sleepDelayMs is:" + String(sleepDelayMs));
     if (millisBetter() - sleepDelayMs >= SLEEP_EVERY_MS)
     {
         debugLog("Entering manageSleep");

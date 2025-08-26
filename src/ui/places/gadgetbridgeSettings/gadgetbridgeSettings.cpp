@@ -1,29 +1,29 @@
-#include "bleSettings.h"
+#include "gadgetbridgeSettings.h"
 #include "rtcMem.h"
 
 static int bleStatusLine;
 
-void bleOnBtn()
+static void onBtn()
 {
-    rM.ble_is_on = true;
+    rM.gadgetbridge_is_on = true;
     gadgetbridgeInit();
     vibrateMotor(VIBRATION_ACTION_TIME);
 }
 
-void bleOffBtn()
+static void offBtn()
 {
-    rM.ble_is_on = false;
+    rM.gadgetbridge_is_on = false;
     exitBle();
     vibrateMotor(VIBRATION_ACTION_TIME);
 }
 
-void initBleDisplay()
+void initGadgetbridgeDisplay()
 {
     init_general_page(50);
-    general_page_set_title("Bluetooth");
+    general_page_set_title("Gadgetbridge");
     genpage_set_center();
 
-    GeneralPageButton button[] = {GeneralPageButton{DEBUG_WIFI_ON, bleOnBtn}, GeneralPageButton{DEBUG_WIFI_OFF, bleOffBtn}};
+    GeneralPageButton button[] = {GeneralPageButton{DEBUG_WIFI_ON, onBtn}, GeneralPageButton{DEBUG_WIFI_OFF, offBtn}};
     general_page_set_buttons(button, 2);
 
     genpage_add("\n");
@@ -33,7 +33,7 @@ void initBleDisplay()
     general_page_set_main();
 }
 
-void loopBleDisplay()
+void loopGadgetbridgeDisplay()
 {
     if (!genpage_is_menu())
     {

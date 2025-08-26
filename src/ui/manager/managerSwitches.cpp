@@ -53,9 +53,9 @@ void switchWifiDebug()
     generalSwitch(wifiDebug);
 }
 
-void switchBle()
+void switchGadgetbridge()
 {
-    generalSwitch(bleSettings);
+    generalSwitch(gadgetbridgeSettings);
 }
 
 void switchGitDebug()

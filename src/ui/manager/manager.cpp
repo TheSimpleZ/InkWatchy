@@ -152,9 +152,9 @@ void loopManager()
         managerLaunchFunc(settingsMenu, initSettingsMenu, loopMenu);
         break;
     }
-    case bleSettings:
+    case gadgetbridgeSettings:
     {
-        managerLaunchFunc(bleSettings, initBleDisplay, loopBleDisplay, slintExit);
+        managerLaunchFunc(gadgetbridgeSettings, initGadgetbridgeDisplay, loopGadgetbridgeDisplay, slintExit);
         break;
     }
     case generalDebug:
