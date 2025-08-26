@@ -165,6 +165,7 @@ struct rtcMem
 #endif
 
     uint8_t ble_connection_attempts : 3;
+    bool ble_is_on: 1;
 };
 
 extern rtcMem rM;

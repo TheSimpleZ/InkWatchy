@@ -41,8 +41,8 @@ RTC_DATA_ATTR rtcMem rM = {
     // Wifi logic
     .lastSyncUnix = 0,
     .lastTryUnix = 0,
-    // Ntp
-    // Time drift correction
+// Ntp
+// Time drift correction
 #if TIME_DRIFT_CORRECTION
     .driftStartUnix = 0,
 #endif
@@ -85,11 +85,7 @@ RTC_DATA_ATTR rtcMem rM = {
 // slate watchface
 #if WATCHFACE_SLATE
     .slate = {
-        .weatherAvailable = false, 
-        .lastHourWeatherCheck = 255, 
-        .lastBatteryLevel = 255, 
-        .lastDay = 255, 
-        .lastMonth = 255,
+        .weatherAvailable = false, .lastHourWeatherCheck = 255, .lastBatteryLevel = 255, .lastDay = 255, .lastMonth = 255,
         .lastTemp = "",      // Initialize empty
         .lastCondition = "", // Initialize empty
     },
@@ -200,6 +196,7 @@ RTC_DATA_ATTR rtcMem rM = {
 #endif
 #endif
     .ble_connection_attempts = 0,
+    .ble_is_on = GADGETBRIDGE_ENABLED,
 };
 
 #if RTC_MEMORY_BACKUP

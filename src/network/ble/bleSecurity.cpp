@@ -3,6 +3,8 @@
 #if BLE_ENABLED
 #include "rtcMem.h"
 
+String blePasskey = "";
+
 // Class to handle security callbacks
 class bleSecurityCallbacks : public BLESecurityCallbacks
 {
@@ -23,10 +25,19 @@ class bleSecurityCallbacks : public BLESecurityCallbacks
 
     void onPassKeyNotify(uint32_t pass_key)
     {
-        debugLog("PassKey Notify: " + String(pass_key));
-        resetSleepDelay(60000);
+        String key = String(pass_key);
+        if (key.length() == 5)
+        {
+            key = "0" + key;
+        }
 
-        // You can display the passkey on the e-paper display here
+        debugLog("PassKey Notify: " + key);
+        // generalSwitch(textDialog);
+        // showTextDialog("\n\n" + key, true, "Passkey");
+
+        blePasskey = key;
+
+        resetSleepDelay(60000);
     }
 
     // This is also not used. not sure what it does.
@@ -42,10 +53,13 @@ class bleSecurityCallbacks : public BLESecurityCallbacks
         {
             String success = (auth_cmpl.key_present ? "Yes" : "No");
             debugLog("Authentication successful. Bonded: " + success);
+            blePasskey = "";
         }
         else
         {
             debugLog("Authentication failed. Reason: " + String(auth_cmpl.fail_reason));
+            generalSwitch(textDialog);
+            showTextDialog("Failed to connect to BLE device", true, "Pairing error");
         }
         resetSleepDelay();
     }

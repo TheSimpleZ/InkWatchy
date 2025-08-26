@@ -152,6 +152,11 @@ void loopManager()
         managerLaunchFunc(settingsMenu, initSettingsMenu, loopMenu);
         break;
     }
+    case bleSettings:
+    {
+        managerLaunchFunc(bleSettings, initBleDisplay, loopBleDisplay, slintExit);
+        break;
+    }
     case generalDebug:
     {
 #if DEBUG_MENUS

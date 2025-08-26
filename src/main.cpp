@@ -55,7 +55,10 @@ void setup()
 #endif
 
 #if GADGETBRIDGE_ENABLED
-  gadgetbridgeInit();
+  if (rM.ble_is_on)
+  {
+    gadgetbridgeInit();
+  }
 #endif
 }
 

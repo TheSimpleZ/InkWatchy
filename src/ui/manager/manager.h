@@ -11,6 +11,7 @@ typedef enum
     mainMenu,
     debugMenu,
     settingsMenu,
+    bleSettings,
     generalDebug,
     clockDebug,
     batteryDebug,
@@ -33,7 +34,7 @@ typedef enum
     bookSelector,
     vault,
     vaultImage, // because of exit function
-    vaultMenu, // because of exit function
+    vaultMenu,  // because of exit function
     apple,
     apple2,
     calendarDateMenu,
@@ -102,6 +103,7 @@ void switchGeneralDebug();
 void switchClockDebug();
 void switchBatteryDebug();
 void switchWifiDebug();
+void switchBle();
 void switchGitDebug();
 void switchAccDebug();
 void switchMotorDebug();
@@ -156,4 +158,3 @@ void switchBaiky();
 void switchFontsPreview();
 #endif
 void showTextDialog(String str, bool center, String title = "");
-
