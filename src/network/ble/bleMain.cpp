@@ -7,6 +7,7 @@ BLEServer *pServer = NULL;
 BLEService *bleService = NULL;
 BLEAdvertising *pAdvertising = NULL;
 bool bleClientConnected = false;
+bool bleIsStarted = false;
 
 class bleServerCallbacks : public BLEServerCallbacks
 {
@@ -45,6 +46,7 @@ void startBle()
     pAdvertising = BLEDevice::getAdvertising();
     pAdvertising->setAppearance(ESP_BLE_APPEARANCE_GENERIC_WATCH);
     pAdvertising->start();
+    bleIsStarted = true;
     resetSleepDelay(BLE_ADVERTISE_TIME * 1000);
 }
 
@@ -55,6 +57,7 @@ void exitBle()
     bleService->stop();
     BLEDevice::deinit(false);
     bleClientConnected = false;
+    bleIsStarted = false;
 }
 
 #endif

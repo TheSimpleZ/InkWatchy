@@ -7,6 +7,8 @@
 extern BLEServer *pServer;
 extern BLEService *bleService;
 extern bool bleClientConnected;
+extern bool bleIsStarted;
+extern String blePasskey;
 
 void initBle();
 void initBle(String name);

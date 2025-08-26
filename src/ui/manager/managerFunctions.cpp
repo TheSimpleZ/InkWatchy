@@ -160,6 +160,11 @@ void initSettingsMenu()
         count = count + 1;
         buttons[count] = {MENU_WIFI, getImg("wifiIcon"), switchWifiDebug};
     }
+    {
+        debugLog("Adding bluetooth to menu");
+        count = count + 1;
+        buttons[count] = {"Bluetooth", getImg("bluetooth"), switchBle};
+    }
 #if DEBUG_MENUS
     {
         count = count + 1;

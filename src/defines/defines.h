@@ -117,6 +117,7 @@ static const WiFiCred *wifiCredStatic[] = {
 #endif
 #if GADGETBRIDGE_ENABLED
 #include "../network/ble/gadgetbridge/gadgetbridge.h"
+#include "../ui/places/bleSettings/bleSettings.h"
 #endif
 
 // Weather
