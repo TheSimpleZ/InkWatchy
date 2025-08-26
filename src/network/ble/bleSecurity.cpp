@@ -49,11 +49,11 @@ class bleSecurityCallbacks : public BLESecurityCallbacks
 
     void onAuthenticationComplete(esp_ble_auth_cmpl_t auth_cmpl)
     {
+        blePasskey = "";
         if (auth_cmpl.success)
         {
             String success = (auth_cmpl.key_present ? "Yes" : "No");
             debugLog("Authentication successful. Bonded: " + success);
-            blePasskey = "";
         }
         else
         {

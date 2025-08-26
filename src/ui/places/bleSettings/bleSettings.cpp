@@ -27,10 +27,10 @@ void initBleDisplay()
     GeneralPageButton button[] = {GeneralPageButton{DEBUG_WIFI_ON, bleOnBtn}, GeneralPageButton{DEBUG_WIFI_OFF, bleOffBtn}};
     general_page_set_buttons(button, 2);
 
-    genpage_add("\n");
+    // genpage_add("\n");
 
-    bleStatusLine = genpage_add("\n");
-    blePasskeyLine = genpage_add("\n");
+    bleStatusLine = genpage_add(" ");
+    blePasskeyLine = genpage_add(" ");
 
     general_page_set_main();
 }
