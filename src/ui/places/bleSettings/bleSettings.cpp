@@ -2,6 +2,7 @@
 #include "rtcMem.h"
 
 static int bleStatusLine;
+static int blePasskeyLine;
 
 void bleOnBtn()
 {
@@ -26,9 +27,10 @@ void initBleDisplay()
     GeneralPageButton button[] = {GeneralPageButton{DEBUG_WIFI_ON, bleOnBtn}, GeneralPageButton{DEBUG_WIFI_OFF, bleOffBtn}};
     general_page_set_buttons(button, 2);
 
-    genpage_add(" ");
+    genpage_add("\n");
 
-    bleStatusLine = genpage_add("");
+    bleStatusLine = genpage_add("\n");
+    blePasskeyLine = genpage_add("\n");
 
     general_page_set_main();
 }
@@ -37,10 +39,16 @@ void loopBleDisplay()
 {
     if (!genpage_is_menu())
     {
+        debugLog("passkey is " + blePasskey + " - passKeyLine: " + blePasskeyLine + " - statusLine: " + bleStatusLine);
+        if (blePasskey == "")
+        {
+            genpage_change("", blePasskeyLine);
+        }
 
         if (blePasskey != "")
         {
-            genpage_change(("Passkey:\n" + blePasskey).c_str(), bleStatusLine);
+            genpage_change("Passkey:", bleStatusLine);
+            genpage_change(blePasskey.c_str(), blePasskeyLine);
         }
         else if (bleClientConnected)
         {
