@@ -26,7 +26,7 @@ void initBleDisplay()
     GeneralPageButton button[] = {GeneralPageButton{DEBUG_WIFI_ON, bleOnBtn}, GeneralPageButton{DEBUG_WIFI_OFF, bleOffBtn}};
     general_page_set_buttons(button, 2);
 
-    genpage_add("\n");
+    genpage_add(" ");
 
     bleStatusLine = genpage_add("");
 
@@ -40,7 +40,7 @@ void loopBleDisplay()
 
         if (blePasskey != "")
         {
-            genpage_change(("Passkey: " + blePasskey).c_str(), bleStatusLine);
+            genpage_change(("Passkey:\n" + blePasskey).c_str(), bleStatusLine);
         }
         else if (bleClientConnected)
         {
