@@ -122,27 +122,29 @@ class rxCallback : public BLECharacteristicCallbacks
     // Here you would parse the JSON and handle different command types
     debugLog("Received GB command: " + jsonContent);
 
-    // // Example: Use ArduinoJson to parse the content
-    // JsonDocument doc;
-    // DeserializationError error = deserializeJson(doc, jsonContent);
+    JsonDocument doc;
+    DeserializationError error = deserializeJson(doc, jsonContent);
 
-    // if (!error)
-    // {
-    //   // Process the command based on its type
-    //   if (doc.containsKey("t"))
-    //   {
-    //     String type = doc["t"];
+    if (!error)
+    {
+      if (doc.containsKey("t"))
+      {
+        String type = doc["t"];
 
-    //     if (type == "notify")
-    //     {
-    //       // Handle notification
-    //       String title = doc["title"];
-    //       String body = doc["body"];
-    //       // Show notification on watch
-    //     }
-    //     // Handle other command types...
-    //   }
-    // }
+        if (type == "notify")
+        {
+          String title = doc["title"];
+          String body = doc["body"];
+          String src = doc["src"];
+
+          generalSwitch(textDialog);
+          showTextDialog(title + ": " + body, true, src);
+          resetSleepDelay(10 * 1000);
+          vibrateMotor(VIBRATION_ACTION_TIME);
+        }
+        // Handle other command types...
+      }
+    }
   }
 };
 
