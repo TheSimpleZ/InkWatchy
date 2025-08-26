@@ -7,6 +7,7 @@ static void onBtn()
 {
     rM.gadgetbridge_is_on = true;
     gadgetbridgeInit();
+    startBle();
     vibrateMotor(VIBRATION_ACTION_TIME);
 }
 

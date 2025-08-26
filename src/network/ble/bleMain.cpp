@@ -47,7 +47,7 @@ void startBle()
     pAdvertising->setAppearance(ESP_BLE_APPEARANCE_GENERIC_WATCH);
     pAdvertising->start();
     bleIsStarted = true;
-    // resetSleepDelay(BLE_ADVERTISE_TIME * 1000);
+    resetSleepDelay(BLE_ADVERTISE_TIME * 1000);
 }
 
 void exitBle()

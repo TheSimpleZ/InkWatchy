@@ -55,9 +55,13 @@ void setup()
 #endif
 
 #if GADGETBRIDGE_ENABLED
-  if (rM.gadgetbridge_is_on && esp_ble_get_bond_device_num() > 0)
+  if (rM.gadgetbridge_is_on)
   {
     gadgetbridgeInit();
+    if (esp_ble_get_bond_device_num() > 0)
+    {
+      startBle();
+    }
   }
 #endif
 }

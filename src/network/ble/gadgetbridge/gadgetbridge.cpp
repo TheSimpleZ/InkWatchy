@@ -179,7 +179,6 @@ void gadgetbridgeInit()
   initBle("Bangle.js InkWatchy"); // Bangle.js prefix is important for the Gadgetbridge app
   pServer->setCallbacks(new gadgetbridgeServerCallbacks());
 
-  // Enable bonding with PIN display (true) or without (false)
   enableBonding();
 
   bleService = pServer->createService(NUS_UUID); // NUS server ID
@@ -199,8 +198,6 @@ void gadgetbridgeInit()
 
     txHandle = pCharacteristic;
   }
-
-  startBle();
 }
 
 // False if we want regular sleep
